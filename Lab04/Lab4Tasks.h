@@ -11,7 +11,7 @@
 using namespace std;
 
 namespace lab4 {
-	// Объявления функций
+	// РћР±СЉСЏРІР»РµРЅРёСЏ С„СѓРЅРєС†РёР№
 	vector<string> readFile(char* pathFile);
 	bool isDigit(char sym);
 	bool isCharacter(char sym);
@@ -30,7 +30,7 @@ namespace lab4 {
 	void Task11();
 	bool Task11Calc(string input);
 
-	// Чтение из файла массива строк
+	// Р§С‚РµРЅРёРµ РёР· С„Р°Р№Р»Р° РјР°СЃСЃРёРІР° СЃС‚СЂРѕРє
 	vector<string> readFile(char* pathFile) {
 		string temp;
 		vector <string> result;
@@ -39,22 +39,22 @@ namespace lab4 {
 		return result;
 	}
 
-	// Проверка на то, является ли символ цифрой
+	// РџСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРёРјРІРѕР» С†РёС„СЂРѕР№
 	bool isDigit(char sym) {
 		return ((int)sym >= 48 && (int)sym <= 59);
 	}
 
-	// Проверка на то, является ли символ буквой английского алфавита
+	// РџСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРёРјРІРѕР» Р±СѓРєРІРѕР№ Р°РЅРіР»РёР№СЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚Р°
 	bool isCharacter(char sym) {
 		return (((int)sym >= 65 && (int)sym <= 90) || ((int)sym >= 97 && (int)sym <= 122));
 	}
 
-	// Проверка на то, является ли символ булевым значением
+	// РџСЂРѕРІРµСЂРєР° РЅР° С‚Рѕ, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРёРјРІРѕР» Р±СѓР»РµРІС‹Рј Р·РЅР°С‡РµРЅРёРµРј
 	bool isBoolean(char sym) {
 		return (sym == 'T' || sym == 'F');
 	}
 
-	// Функция для получения приоритета операции
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РїСЂРёРѕСЂРёС‚РµС‚Р° РѕРїРµСЂР°С†РёРё
 	int getPriority(char sym) {
 		switch (sym) {
 		case '(':
@@ -71,7 +71,7 @@ namespace lab4 {
 		return 0;
 	}
 
-	// Функция для операции "И"
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёРё "Р"
 	char operationAnd(MyStack<char>* stack) {
 		char first = stack->pop();
 		char second = stack->pop();
@@ -79,7 +79,7 @@ namespace lab4 {
 		else return 'T';
 	}
 
-	// Функция для операции "ИЛИ"
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёРё "РР›Р"
 	char operationOr(MyStack<char>* stack) {
 		char first = stack->pop();
 		char second = stack->pop();
@@ -87,7 +87,7 @@ namespace lab4 {
 		else return 'T';
 	}
 
-	// Функция для операции "ИСКЛЮЧАЮЩЕЕ ИЛИ"
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёРё "РРЎРљР›Р®Р§РђР®Р©Р•Р• РР›Р"
 	char operationXor(MyStack<char>* stack) {
 		char first = stack->pop();
 		char second = stack->pop();
@@ -95,24 +95,24 @@ namespace lab4 {
 		else return 'T';
 	}
 
-	// Функция для операции "НЕ"
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёРё "РќР•"
 	char operationDeny(MyStack<char>* stack) {
 		char first = stack->pop();
 		if (first == 'F') return 'T';
 		else return 'F';
 	}
 
-	// Основная функция для решения логической последовательности в задании 9
+	// РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ СЂРµС€РµРЅРёСЏ Р»РѕРіРёС‡РµСЃРєРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РІ Р·Р°РґР°РЅРёРё 9
 	bool Task09Calc(string input) {
-		// Начальная проверка
+		// РќР°С‡Р°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР°
 		if (input.length() == 0) {
-			cout << "Введена пустая строка!\n";
+			cout << "Р’РІРµРґРµРЅР° РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°!\n";
 			return false;
 		}
 		string output = "";
 		MyStack<char> stack;
 
-		// Заносим операции в стек
+		// Р—Р°РЅРѕСЃРёРј РѕРїРµСЂР°С†РёРё РІ СЃС‚РµРє
 		for (size_t i = 0; i < input.length(); i++) {
 			char sym = input[i];
 			if (isBoolean(sym)) output += sym;
@@ -136,14 +136,14 @@ namespace lab4 {
 					}
 					break;
 				default:
-					cout << "Некорректный синтаксис выражения.\n";
+					cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 					return false;
 					break;
 				}
 			}
 		}
 
-		// Выполнение операций из стека
+		// Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёР№ РёР· СЃС‚РµРєР°
 		while (!stack.isEmpty()) output += stack.pop();
 		while (!isBoolean(output[output.length() - 1])) {
 			if (isBoolean(output[0])) {
@@ -172,25 +172,25 @@ namespace lab4 {
 			}
 		}
 
-		// Финальная проверка и возврат результатов
+		// Р¤РёРЅР°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° Рё РІРѕР·РІСЂР°С‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 		if (stack.getSize() != 0) {
-			cout << "Некорректный синтаксис выражения.\n";
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 			return false;
 		}
 		if (output[0] == 'T') return true;
 		else return false;
 	}
 
-	// Задание 9
+	// Р—Р°РґР°РЅРёРµ 9
 	void Task09() {
 		string str = readFile("Lab4/Task09.txt")[0];
 		bool result = Task09Calc(str);
-		cout << "Результат для выражения " << str << ": ";
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚ РґР»СЏ РІС‹СЂР°Р¶РµРЅРёСЏ " << str << ": ";
 		if (result) cout << "true.\n";
 		else cout << "false.\n";
 	}
 
-	// Функция для операции нахождения максимума
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёРё РЅР°С…РѕР¶РґРµРЅРёСЏ РјР°РєСЃРёРјСѓРјР°
 	int max(MyStack<char>* stack) {
 		int first = stack->pop() - '0';
 		int second = stack->pop() - '0';
@@ -198,7 +198,7 @@ namespace lab4 {
 		else return second;
 	}
 
-	// Функция для операция нахождения минимума
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїРµСЂР°С†РёСЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РјРёРЅРёРјСѓРјР°
 	int min(MyStack<char>* stack) {
 		int first = stack->pop() - '0';
 		int second = stack->pop() - '0';
@@ -206,17 +206,17 @@ namespace lab4 {
 		else return second;
 	}
 
-	// Основная функция для решения записи в задании 10
+	// РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ РґР»СЏ СЂРµС€РµРЅРёСЏ Р·Р°РїРёСЃРё РІ Р·Р°РґР°РЅРёРё 10
 	int Task10Calc(string input) {
-		// Начальная проверка
+		// РќР°С‡Р°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР°
 		if (input.length() == 0) {
-			cout << "Введена пустая строка!\n";
+			cout << "Р’РІРµРґРµРЅР° РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°!\n";
 			return -1;
 		}
 		MyStack<char> stack;
 		string output = "";
 
-		// Заносим операции в стек
+		// Р—Р°РЅРѕСЃРёРј РѕРїРµСЂР°С†РёРё РІ СЃС‚РµРє
 		for (size_t i = 0; i < input.length(); i++) {
 			char sym = input[i];
 			if (isDigit(sym)) output += sym;
@@ -230,7 +230,7 @@ namespace lab4 {
 					break;
 				case ')':
 					if (stack.peek() != ',') {
-						cout << "Некорректный синтаксис выражения.\n";
+						cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 						return -1;
 					}
 					stack.pop();
@@ -238,14 +238,14 @@ namespace lab4 {
 					output += stack.pop();
 					break;
 				default:
-					cout << "Некорректный синтаксис выражения.\n";
+					cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 					return -1;
 					break;
 				}
 			}
 		}
 
-		// Выполнение операций из стека
+		// Р’С‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёР№ РёР· СЃС‚РµРєР°
 		while (!stack.isEmpty()) output += stack.pop();
 		while (!isDigit(output[output.length() - 1])) {
 			if (isDigit(output[0])) {
@@ -264,36 +264,36 @@ namespace lab4 {
 					output = to_string(min(&stack)) + output;
 					break;
 				default:
-					cout << "Некорректный синтаксис выражения.\n";
+					cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 					return -1;
 					break;
 				}
 			}
 		}
 
-		// Финальная проверка и возврат результатов
+		// Р¤РёРЅР°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° Рё РІРѕР·РІСЂР°С‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 		if (stack.getSize() != 0) {
-			cout << "Некорректный синтаксис выражения.\n";
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 			return -1;
 		}
 		int result = output[0] - '0';
 		return result;
 	}
 
-	// Задание 10
+	// Р—Р°РґР°РЅРёРµ 10
 	void Task10() {
 		string str = readFile("Lab4/Task10.txt")[0];
 		int result = Task10Calc(str);
-		cout << "Результат для выражения " << str << ": " << result << endl;
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚ РґР»СЏ РІС‹СЂР°Р¶РµРЅРёСЏ " << str << ": " << result << endl;
 	}
 
-	// Функция для проверки, является ли символ переменной
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃРёРјРІРѕР» РїРµСЂРµРјРµРЅРЅРѕР№
 	bool isName(char sym) {
 		if (sym == 'X' || sym == 'Y' || sym == 'Z') return true;
 		else return false;
 	}
 
-	// Функция для проверки операций
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё РѕРїРµСЂР°С†РёР№
 	char PMoper(MyStack<char>* stack) {
 		char first = stack->pop();
 		char second = stack->pop();
@@ -303,17 +303,17 @@ namespace lab4 {
 		return 'T';
 	}
 
-	// Функция для проверки, является ли введённое выражение правильным
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІРІРµРґС‘РЅРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ РїСЂР°РІРёР»СЊРЅС‹Рј
 	bool Task11Calc(string input) {
-		// Начальная проверка
+		// РќР°С‡Р°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР°
 		if (input.length() == 0) {
-			cout << "Введена пустая строка!\n";
+			cout << "Р’РІРµРґРµРЅР° РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°!\n";
 			return false;
 		}
 		MyStack<char> stack;
 		string output = "";
 
-		// Заносим операции в стек
+		// Р—Р°РЅРѕСЃРёРј РѕРїРµСЂР°С†РёРё РІ СЃС‚РµРє
 		for (size_t i = 0; i < input.length(); i++) {
 			char sym = input[i];
 			if (isName(sym)) output += sym;
@@ -329,7 +329,7 @@ namespace lab4 {
 					stack.pop();
 					break;
 				default:
-					cout << "Некорректный синтаксис выражения.\n";
+					cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 					return false;
 					break;
 				}
@@ -352,28 +352,28 @@ namespace lab4 {
 					output = PMoper(&stack) + output;
 					break;
 				default:
-					cout << "Некорректный синтаксис выражения.\n";
+					cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 					return false;
 					break;
 				}
 			}
 		}
 
-		// Финальная проверка и возврат результатов
+		// Р¤РёРЅР°Р»СЊРЅР°СЏ РїСЂРѕРІРµСЂРєР° Рё РІРѕР·РІСЂР°С‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 		if (stack.getSize() != 0) {
-			cout << "Некорректный синтаксис выражения.\n";
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ СЃРёРЅС‚Р°РєСЃРёСЃ РІС‹СЂР°Р¶РµРЅРёСЏ.\n";
 			return false;
 		}
 		else return true;
 	}
 
-	// Задание 11
+	// Р—Р°РґР°РЅРёРµ 11
 	void Task11() {
 		string str = readFile("Lab4/Task11.txt")[0];
 		bool result = Task11Calc(str);
-		cout << "Выражение " << str << " является ";
-		if (result) cout << "корректным.\n";
-		else cout << "некорректным.\n";
+		cout << "Р’С‹СЂР°Р¶РµРЅРёРµ " << str << " СЏРІР»СЏРµС‚СЃСЏ ";
+		if (result) cout << "РєРѕСЂСЂРµРєС‚РЅС‹Рј.\n";
+		else cout << "РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Рј.\n";
 	}
 
 }
