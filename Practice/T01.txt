@@ -1,4 +1,4 @@
-4
+6
 Add x
 Add y
 Add z
