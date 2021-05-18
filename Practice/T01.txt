@@ -1,0 +1,7 @@
+4
+Add x
+Add y
+Add z
+Vote z
+Vote y
+Vote x
