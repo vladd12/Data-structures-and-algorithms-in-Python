@@ -1,7 +1,7 @@
 #ifndef GETTIME_H
 #define GETTIME_H
 
-#include <time.h>
+#include <ctime>
 
 // Функция для подсчёта времени выполнения участка кода (в секундах)
 double getTime(clock_t start, clock_t end) {
