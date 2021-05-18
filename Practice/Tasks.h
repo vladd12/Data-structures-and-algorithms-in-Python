@@ -2,38 +2,48 @@
 #define TASKS_H
 
 #include <iostream>
+#include "Task2.h"
+#include "Task3.h"
+#include "Task4.h"
 #include "Task5.h"
 
 using namespace std;
 
-// Пространство имён для практических задач
+// РџСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РёРјС‘РЅ РґР»СЏ РїСЂР°РєС‚РёС‡РµСЃРєРёС… Р·Р°РґР°С‡
 namespace tasks {
-	// Функция для выбора задания из практических работ
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹Р±РѕСЂР° Р·Р°РґР°РЅРёСЏ РёР· РїСЂР°РєС‚РёС‡РµСЃРєРёС… СЂР°Р±РѕС‚
 	void chooseTask() {
 		int taskNum = 0;
-		cout << "Выберите практическое задание (от 1 до 5, любое другое значение - выход): ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСЂР°РєС‚РёС‡РµСЃРєРѕРµ Р·Р°РґР°РЅРёРµ (РѕС‚ 1 РґРѕ 5, Р»СЋР±РѕРµ РґСЂСѓРіРѕРµ Р·РЅР°С‡РµРЅРёРµ - РІС‹С…РѕРґ): ";
 		cin >> taskNum;
 		switch (taskNum) {
 		case 1:
-			cout << "\n";
+			cout << "РЎРґРµР»Р°РЅРѕ РЅР° Python.\n";
 			break;
 		case 2:
-			cout << "\n";
+			cout << "Р—Р°РґР°С‡Рё РЅР° РґРѕРј РѕС‚ 27 С„РµРІСЂР°Р»СЏ.\n";
+			Task2Problem1Wrapper();
+			Task2Problem2Wrapper();
+			Task2Problem3Wrapper();
 			break;
 		case 3:
-			cout << "\n";
+			cout << "РљРѕРЅС‚СЂРѕР»СЊРЅС‹Рµ Р·Р°РґР°С‡Рё РїРѕ РґРёСЃС†РёРїР»РёРЅРµ РЎРёРђРћР” в„–1.\n";
+			Task3Problem1Wrapper();
+			Task3Problem2Wrapper();
+			Task3Problem3Wrapper();
 			break;
 		case 4:
-			cout << "\n";
+			cout << "Р—Р°РґР°С‡Р° РЅР° РёРЅС‚РµСЂРІР°Р»С‹.\n";
+			Task4Problem1Wrapper();
 			break;
 		case 5:
-			cout << "Задачи на строки.\n";
+			cout << "Р—Р°РґР°С‡Рё РЅР° СЃС‚СЂРѕРєРё.\n";
 			Task5Problem1Wrapper();
 			Task5Problem2Wrapper();
 			Task5Problem3Wrapper();
 			break;
 		default:
-			cout << "Некорректное значение, выход из программы.\n";
+			cout << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ, РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹.\n";
 			break;
 		}
 	}
