@@ -32,10 +32,7 @@ namespace lab4 {
 	bool isCharacter(char sym);
 	void Task07();
 	vector<string> separate(string str, string separator);
-
-
-
-	
+	void Task08();
 	void Task09();
 	bool Task09Calc(string input);
 	bool isBoolean(char sym);
