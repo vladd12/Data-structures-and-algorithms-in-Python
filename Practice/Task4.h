@@ -8,25 +8,25 @@
 
 using namespace std;
 
-// Пространство имён для практических задач
+// РџСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ РёРјС‘РЅ РґР»СЏ РїСЂР°РєС‚РёС‡РµСЃРєРёС… Р·Р°РґР°С‡
 namespace tasks {
-	// Объявления функций
+	// РћР±СЉСЏРІР»РµРЅРёСЏ С„СѓРЅРєС†РёР№
 	void Task4Problem1Wrapper();
 	vector<vector<int>> Intervals(vector<vector<int>> input);
 	bool IntervalComparer(vector<int> x, vector<int> y);
 
-	// Компаратор для сравнения отрезков
+	// РљРѕРјРїР°СЂР°С‚РѕСЂ РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ РѕС‚СЂРµР·РєРѕРІ
 	bool IntervalComparer(vector<int> x, vector<int> y) {
 		return x[0] < y[0];
 	}
 
-	// Функция для выполнения задания
+	// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ Р·Р°РґР°РЅРёСЏ
 	vector<vector<int>> Intervals(vector<vector<int>> input) {
-		// Проверка и сортировка
+		// РџСЂРѕРІРµСЂРєР° Рё СЃРѕСЂС‚РёСЂРѕРІРєР°
 		if (input.size() == 0) return input;
 		sort(input.begin(), input.end(), IntervalComparer);
 
-		// Основной цикл
+		// РћСЃРЅРѕРІРЅРѕР№ С†РёРєР»
 		MyStack<vector<int>> stack;
 		vector<int> current = input[0];
 		for (size_t i = 1; i < input.size(); i++) {
@@ -39,7 +39,7 @@ namespace tasks {
 		}
 		stack.push(current);
 
-		// Возвращаем элементы из стека
+		// Р’РѕР·РІСЂР°С‰Р°РµРј СЌР»РµРјРµРЅС‚С‹ РёР· СЃС‚РµРєР°
 		vector<vector<int>> ret(stack.getSize());
 		for (int i = ret.size() - 1; i >= 0; i--) {
 			ret[i] = stack.pop();
@@ -47,15 +47,15 @@ namespace tasks {
 		return ret;
 	}
 
-	// Функция обёртка для задания
+	// Р¤СѓРЅРєС†РёСЏ РѕР±С‘СЂС‚РєР° РґР»СЏ Р·Р°РґР°РЅРёСЏ
 	void Task4Problem1Wrapper() {
-		cout << "Результат выполнения для [ [1, 3], [2, 6], [8, 10], [15, 18] ]:\n[ ";
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚ РІС‹РїРѕР»РЅРµРЅРёСЏ РґР»СЏ [ [1, 3], [2, 6], [8, 10], [15, 18] ]:\n[ ";
 		vector<vector<int>> result = Intervals({ { 1, 3 },{ 2, 6 },{ 8, 10 },{ 15, 18 } });
 		for (size_t i = 0; i < result.size(); i++) {
 			cout << "[" << result[i][0] << ", " << result[i][1] << "] ";
 		}
 		cout << "]\n";
-		cout << "Результат выполнения для [ [1, 4], [4, 5] ]:\n[ ";
+		cout << "Р РµР·СѓР»СЊС‚Р°С‚ РІС‹РїРѕР»РЅРµРЅРёСЏ РґР»СЏ [ [1, 4], [4, 5] ]:\n[ ";
 		result = Intervals({ { 1, 4 },{ 4, 5 } });
 		for (size_t i = 0; i < result.size(); i++) {
 			cout << "[" << result[i][0] << ", " << result[i][1] << "] ";
